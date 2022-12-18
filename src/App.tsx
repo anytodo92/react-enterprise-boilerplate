@@ -4,6 +4,7 @@ import style from './App.module.css';
 
 const About = lazy(() => import('./views/about/About'));
 const Home = lazy(() => import('./views/home/Home'));
+const Login = lazy(() => import('./views/auth/Login'));
 
 function App() {
   return (
@@ -11,11 +12,13 @@ function App() {
       <h1>Welcome to the Enterprise Boilerplate</h1>
       <nav className={style.nav}>
         <Link to='/'>Home</Link>
+        <Link to='/login'>Login</Link>
         <Link to='/about'>About</Link>
       </nav>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
           <Route path='about' element={<About />} />
         </Routes>
       </Suspense>

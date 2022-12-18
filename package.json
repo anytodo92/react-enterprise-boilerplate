@@ -24,11 +24,23 @@
     "./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier -w -u"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.7",
+    "@mui/x-data-grid": "^5.14.0",
+    "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
+    "date-fns": "^2.28.0",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0"
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "redux-persist": "^6.0.0",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
@@ -36,7 +48,8 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
+    "@types/react-dom": "^18.0.6",    
+    "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "@vitejs/plugin-react": "^1.3.0",
