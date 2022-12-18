@@ -2,7 +2,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 // Redux
 import { useDispatch } from 'react-redux';
-// import { useLoginMutation } from '../../services/auth';
+import { useLoginMutation } from '../../services/auth';
 import { setCredentials } from './slice';
 
 // Material UI
@@ -20,14 +20,14 @@ import { styled } from '@mui/material/styles';
 import { Formik } from 'formik';
 
 // Yup
-// import { loginSchema } from '../../utils/validations';
+import { loginSchema } from '../../utils/validations';
+
+import { useAppSelector } from '@/hooks/reduxHook';
 
 const Login = () => {
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const isLoggedIn = false;
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
-  // const [{ isLoading }] = useLoginMutation();
-  const isLoading = false;
+  const [{ isLoading }]: any = useLoginMutation();
   const navigate = useNavigate();
 
   if (isLoggedIn) {
@@ -45,6 +45,7 @@ const Login = () => {
                 email: '',
                 password: '',
               }}
+              validationSchema={loginSchema}
               onSubmit={async (values) => {
                 // const user = await login(values).unwrap();
                 // dispatch(setCredentials(user));
