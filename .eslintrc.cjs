@@ -56,7 +56,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-undef': process.env.NODE_ENV === 'production' ? 'warn' : 'error',
     'no-unreachable': process.env.NODE_ENV === 'production' ? 'warn' : 'error',
-    'prettier/prettier': ['error', { singleQuote: true, endOfLine: "auto" }],
+    'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-unused-vars':
       process.env.NODE_ENV === 'production' ? 'warn' : 'error',
