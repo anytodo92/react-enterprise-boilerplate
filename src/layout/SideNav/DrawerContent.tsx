@@ -2,14 +2,22 @@ import { Switch } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 import Menu from './Menu';
 import menuData from './menuData';
 
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '@/hooks/reduxHook';
+import { Dispatch, SetStateAction } from 'react';
+
+type DrawerContentProps = {
+  isMobileOpen: boolean;
+  isCollapseMenu: boolean;
+  setIsCollapseMenu: Dispatch<SetStateAction<boolean>>;
+  canCollapseMenu: boolean;
+  setCanCollapseMenu: Dispatch<SetStateAction<boolean>>;
+  drawerWidth: number;
+};
 
 const DrawerContent = ({
   isMobileOpen,
@@ -17,9 +25,9 @@ const DrawerContent = ({
   setIsCollapseMenu,
   canCollapseMenu,
   setCanCollapseMenu,
-}) => {
+}: DrawerContentProps) => {
   const navigate = useNavigate();
-  const profile = useSelector((state) => state.auth.profile);
+  const profile = useAppSelector((state) => state.auth.profile);
 
   const fname = profile?.fname ? profile?.fname : '';
   const mname = profile?.mname ? profile?.mname : '';
@@ -137,14 +145,6 @@ const DrawerContent = ({
       <Divider light />
     </div>
   );
-};
-
-DrawerContent.propTypes = {
-  isMobileOpen: PropTypes.bool,
-  isCollapseMenu: PropTypes.bool,
-  setIsCollapseMenu: PropTypes.func,
-  canCollapseMenu: PropTypes.bool,
-  setCanCollapseMenu: PropTypes.func,
 };
 
 export default DrawerContent;
