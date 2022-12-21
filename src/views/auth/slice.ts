@@ -7,7 +7,13 @@ const slice = createSlice({
     token: null,
     isLoggedIn: false,
     isLoading: false,
-    profile: null,
+    is_staff: false,
+    profile: {
+      lname: '',
+      mname: '',
+      fname: '',
+      user_type_id: 1,
+    },
   },
   reducers: {
     setCredentials: (state: any, { payload: { user, token } }) => {
